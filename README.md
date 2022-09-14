@@ -1,5 +1,5 @@
 # eMag-API-Test-Tool
- Tool for testing eMag API (bacause they don't provide any)
+ Tool for testing eMag API (because they don't provide any)
 
 ## install
 ```
