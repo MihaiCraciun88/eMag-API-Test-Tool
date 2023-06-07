@@ -34,7 +34,17 @@ class Order extends Model
         return $this->hasMany(OrderAttachment::class);
     }
 
-    public function toArray()
+    public function total(): float
+    {
+        $total = 0;
+        foreach ($this->products as $product) {
+            $total = round($total + $product->sale_price * ($product->vat + 1), 2);
+        }
+        $total = round($total + $this->shipping_tax, 2);
+        return $total;
+    }
+
+    public function toArray(): array
     {
         $array = parent::toArray();
         if (isset($array['user'])) {

@@ -13,19 +13,19 @@ class EmagController extends Controller
 {
     public function orderRead(Request $request)
     {
-        $orders = Order::where('mkt_id', Auth::id());
-        $this->_filter($request, $orders);
-        $this->_limit($request, $orders);
-        return EmagService::response($orders->get());
+        $query = Order::where('mkt_id', Auth::id());
+        $this->_filter($request, $query);
+        $this->_limit($request, $query);
+        return EmagService::response($query->get());
     }
 
     public function orderCount(Request $request)
     {
-        $orders = Order::where('mkt_id', Auth::id());
-        $this->_filter($request, $orders);
+        $query = Order::where('mkt_id', Auth::id());
+        $this->_filter($request, $query);
 
         $itemsPerPage = $this->_getItemsPerPage($request);
-        $total = $orders->count();
+        $total = $query->count();
         return EmagService::responseCount($total, $itemsPerPage);
     }
 
@@ -58,19 +58,19 @@ class EmagController extends Controller
 
     public function productOfferRead(Request $request)
     {
-        $product = Product::where('mkt_id', Auth::id());
-        $this->_filter($request, $product);
-        $this->_limit($request, $product);
-        return EmagService::response($product->get());
+        $query = Product::where('mkt_id', Auth::id());
+        $this->_filter($request, $query);
+        $this->_limit($request, $query);
+        return EmagService::response($query->get());
     }
 
     public function productOfferCount(Request $request)
     {
-        $product = Product::where('mkt_id', Auth::id());
-        $this->_filter($request, $product);
+        $query = Product::where('mkt_id', Auth::id());
+        $this->_filter($request, $query);
 
         $itemsPerPage = $this->_getItemsPerPage($request);
-        $total = $product->count();
+        $total = $query->count();
         return EmagService::responseCount($total, $itemsPerPage);
     }
 
@@ -89,31 +89,31 @@ class EmagController extends Controller
         return $stock;
     }
 
-    private function _filter(Request $request, $model)
+    private function _filter(Request $request, $query)
     {
         $data = $request->data;
         $data['createdBefore'] = $data['createdBefore'] ?? now();
         $data['modifiedBefore'] = $data['modifiedBefore'] ?? now();
         if (isset($data['id'])) {
-            $model->where('id', $data['id']);
+            $query->where('id', $data['id']);
         }
         if (isset($data['status'])) {
-            $model->where('status', $data['status']);
+            $query->where('status', $data['status']);
         }
         if (isset($data['createdAfter']) && isset($data['createdBefore'])) {
-            $model->whereBetween('created', [$data['createdAfter'], $data['createdBefore']]);
+            $query->whereBetween('created', [$data['createdAfter'], $data['createdBefore']]);
         }
         if (isset($data['modifiedAfter']) && isset($data['modifiedBefore'])) {
-            $model->whereBetween('modified', [$data['modifiedAfter'], $data['modifiedBefore']]);
+            $query->whereBetween('modified', [$data['modifiedAfter'], $data['modifiedBefore']]);
         }
     }
 
-    private function _limit(Request $request, $model)
+    private function _limit(Request $request, $query)
     {
         $itemsPerPage = $this->_getItemsPerPage($request);
         $currentPage = $this->_getCurrentPage($request);
-        $model->limit($itemsPerPage);
-        $model->offset(($currentPage - 1) * $itemsPerPage);
+        $query->limit($itemsPerPage);
+        $query->offset(($currentPage - 1) * $itemsPerPage);
     }
 
     private function _getItemsPerPage(Request $request)
