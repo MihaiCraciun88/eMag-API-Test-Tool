@@ -38,7 +38,7 @@ class Order extends Model
     {
         $total = 0;
         foreach ($this->products as $product) {
-            $total = round($total + $product->sale_price * ($product->vat + 1), 2);
+            $total += round($product->sale_price * ($product->vat + 1), 2) * $product->quantity;
         }
         $total = round($total + $this->shipping_tax, 2);
         return $total;

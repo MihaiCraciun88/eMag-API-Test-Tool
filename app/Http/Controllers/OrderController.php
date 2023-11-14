@@ -14,10 +14,21 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::latest()->paginate(30);
+        $orders = Order::query()->orderBy('id', 'DESC')->paginate(30);
     
         return view('orders.index', compact('orders'));
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Order $order)
+    {
+        return view('orders.edit', compact('order'));
+    } 
 
     /**
      * Remove the specified resource from storage.

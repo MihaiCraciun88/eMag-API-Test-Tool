@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="float-start">
-                <h2>Orders</h2>
+                <h1 class="h2 mb-3">Orders</h1>
             </div>
         </div>
     </div>
@@ -29,6 +29,7 @@
             <td>{{ $order->total() }}</td>
             <td>
                 <form action="{{ route('orders.destroy', $order->id) }}" method="POST">
+                    <a class="btn btn-primary" href="{{ route('orders.edit', $order->id) }}">Edit</a>
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Delete</button>
