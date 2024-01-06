@@ -18,7 +18,6 @@
             <li class="nav-item"><a href="{{ url('/users') }}" class="nav-link {{ Route::is('users.*') ? 'active' : 'text-white' }}">Users</a></li>
             <li class="nav-item"><a href="{{ url('/orders') }}" class="nav-link {{ Route::is('orders.*') ? 'active' : 'text-white' }}">Orders</a></li>
             <li class="nav-item"><a href="{{ url('/products') }}" class="nav-link {{ Route::is('products.*') ? 'active' : 'text-white' }}">Products</a></li>
-            <li class="nav-item"><a href="{{ url('/customers') }}" class="nav-link {{ Route::is('customers.*') ? 'active' : 'text-white' }}">Customers</a></li>
         </ul>
         <!--<hr>
         <div class="dropdown">
