@@ -58,6 +58,9 @@ class EmagController extends Controller
 
     public function productOfferRead(Request $request)
     {
+        $itemsPerPage = $this->_getItemsPerPage($request);
+        abort_if($itemsPerPage > 100, 400, 'Reading products is limited to maximum 100 elements');
+
         $query = Product::where('mkt_id', Auth::id());
         $this->_filter($request, $query);
         $this->_limit($request, $query);
@@ -76,17 +79,13 @@ class EmagController extends Controller
 
     public function productOfferStock(Request $request, Product $product)
     {
-        if ($product->mkt_id !== Auth::id()) {
-            abort(403);
-        }
-        $stock = $request->stock;
-        if (!is_numeric($stock)) {
-            abort(400);
-        }
-        $product->stock = $stock;
+        abort_if($product->mkt_id !== Auth::id(), 403);
+        abort_if(!is_numeric($request->stock), 400);
+
+        $product->stock = $request->stock;
         $product->save();
 
-        return $stock;
+        return response('', 204);
     }
 
     private function _filter(Request $request, $query)
