@@ -23,5 +23,6 @@ Route::resource('products', 'ProductController')->except(['show']);
 
 Route::get('/orders', 'OrderController@index')->name('orders.index');
 Route::get('/orders/{order}', 'OrderController@edit')->name('orders.edit');
+Route::patch('/orders/{order}', 'OrderController@update')->name('orders.update');
 Route::delete('/orders', 'OrderController@destroy')->name('orders.destroy');
 Route::delete('/orders/{order}/products/{product}', 'OrderController@productsDestroy')->name('orders.products.destroy');

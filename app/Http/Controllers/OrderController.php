@@ -22,19 +22,35 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
     public function edit(Order $order)
     {
         return view('orders.edit', compact('order'));
-    } 
+    }
+
+    /**
+     * Update the specified resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Order  $order
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Order $order)
+    {
+        $order->status = $request->status;
+        $order->save();
+        
+        return redirect()->route('orders.index')
+            ->with('success', 'Order updated successfully');
+    }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Order  $product
-     * @return \Illuminate\Http\Order
+     * @param  \App\Models\Order  $order
+     * @return \Illuminate\Http\Response
      */
     public function destroy(Order $order)
     {

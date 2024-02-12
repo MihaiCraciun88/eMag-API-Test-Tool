@@ -17,14 +17,16 @@
         <tr>
             <th>Id</th>
             <th>Vendor name</th>
+            <th>Status</th>
             <th>Customer</th>
             <th>Total</th>
             <th width="150px">Action</th>
         </tr>
-        @foreach ($orders as $order)
+        @forelse ($orders as $order)
         <tr>
             <td>#{{ $order->id }}</td>
             <td>{{ $order->vendor_name }}</td>
+            <td>{{ $order->status_name }}</td>
             <td>{{ $order->customer->name }}</td>
             <td>{{ $order->total() }}</td>
             <td>
@@ -36,7 +38,11 @@
                 </form>
             </td>
         </tr>
-        @endforeach
+        @empty
+        <tr>
+            <td colspan="6">There are no orders</td>
+        </tr>
+        @endforelse
     </table>
   
     {!! $orders->links() !!}
