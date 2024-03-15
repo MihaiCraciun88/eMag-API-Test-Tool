@@ -28,6 +28,8 @@
                 <div class="mb-3"><strong>Customer name:</strong> {{ $order->customer->name }}</div>
                 <div class="mb-3"><strong>Customer email:</strong> {{ $order->customer->email }}</div>
                 <div class="mb-3"><strong>Customer phone:</strong> {{ $order->customer->billing_phone }}</div>
+                <div class="mb-3"><strong>Date created:</strong> {{ $order->created }}</div>
+                <div class="mb-3"><strong>Date finalized:</strong> {{ $order->finalization_date }}</div>
                 <div class="mb-3">
                     <strong>Status:</strong>
                     <select name="status" class="form-select form-select-sm">
