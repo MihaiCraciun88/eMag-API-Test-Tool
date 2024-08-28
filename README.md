@@ -15,10 +15,14 @@ php artisan serve
 ```
 
 ## Showcase
-![dashboard](https://mihaicraciun88.github.io/img/emag-test-api-dashboard.png)
+dashboard
+![dashboard](https://mihaicraciun88.github.io/eMag-API-Test-Tool/img/emag-test-api-dashboard.png)
 
-![users](https://mihaicraciun88.github.io/img/emag-test-api-users.png)
+users
+![users](https://mihaicraciun88.github.io/eMag-API-Test-Tool/img/emag-test-api-users.png)
 
-![orders](https://mihaicraciun88.github.io/img/emag-test-api-orders.png)
+orders
+![orders](https://mihaicraciun88.github.io/eMag-API-Test-Tool/img/emag-test-api-orders.png)
 
-![products](https://mihaicraciun88.github.io/img/emag-test-api-products.png)
+products
+![products](https://mihaicraciun88.github.io/eMag-API-Test-Tool/img/emag-test-api-products.png)
