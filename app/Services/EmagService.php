@@ -41,7 +41,7 @@ class EmagService {
             ->user($user)
             ->create();
 
-        $ips = ['185.178.229.2', '185.178.229.5', '78.96.115.82'];
+        $ips = ['127.0.0.1'];
         foreach ($ips as $ip) {
             $userIp = UserIp::where('user_id', $user->id)
                 ->where('ip', ip2long($ip))

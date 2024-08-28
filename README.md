@@ -14,15 +14,20 @@ php artisan migrate
 php artisan serve
 ```
 
+## Features
+* eMag API similar responses
+* eMag API errors
+* generate fake Orders, Customers and Products to test implementation
+
 ## Showcase
-dashboard
+Dashboard
 ![dashboard](https://mihaicraciun88.github.io/eMag-API-Test-Tool/img/emag-test-api-dashboard.png)
 
-users
+Users
 ![users](https://mihaicraciun88.github.io/eMag-API-Test-Tool/img/emag-test-api-users.png)
 
-orders
+Orders
 ![orders](https://mihaicraciun88.github.io/eMag-API-Test-Tool/img/emag-test-api-orders.png)
 
-products
+Products
 ![products](https://mihaicraciun88.github.io/eMag-API-Test-Tool/img/emag-test-api-products.png)
