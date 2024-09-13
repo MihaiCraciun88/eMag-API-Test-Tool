@@ -1,9 +1,10 @@
 # eMag-API-Test-Tool
- Tool for testing eMag API (because they don't provide any)
+ Tool for testing eMag API (because they don't provide any) using Laravel
 
 ## Dependencies
 * php
 * [composer](https://getcomposer.org/)
+* a database - Mysql, postgress or sqlite (read Laravel [docs](https://laravel.com/docs/11.x/database))
 
 ## Install
 ```
