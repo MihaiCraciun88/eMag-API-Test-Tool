@@ -8,7 +8,7 @@
         <div class="alert alert-danger">{{ $message }}</div>
     @endif
     <a href="{{ url('/run-seed') }}" class="btn btn-danger">Refresh DB and Seed</a>
-    <a href="{{ url('/doc/eMAG-Marketplace-API-documentation-v4.4.5.docx') }}" class="btn btn-success" target="_blank">Documentation</a>
+    <a href="{{ url('/doc/eMAG-Marketplace-API-documentation-v4.4.7.docx') }}" class="btn btn-success" target="_blank">Documentation</a>
     <hr>
     POST: {{ url('/api/order/count') }}<br>
     POST: {{ url('/api/order/read') }}<br>
