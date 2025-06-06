@@ -39,7 +39,7 @@ class ProductController extends Controller
     {
         $request->validate([
             'name'              => 'required',
-            'ext_part_number'   => 'required',
+            // 'ext_part_number'   => 'required',
             'part_number_key'   => 'required',
             'part_number'       => 'required',
             'currency'          => 'required',
@@ -52,7 +52,7 @@ class ProductController extends Controller
     
         Product::create([
             'name'              => $request->name,
-            'ext_part_number'   => $request->ext_part_number,
+            // 'ext_part_number'   => $request->ext_part_number,
             'part_number_key'   => $request->part_number_key,
             'part_number'       => $request->part_number,
             'currency'          => $request->currency,
@@ -90,7 +90,7 @@ class ProductController extends Controller
         
         $request->validate([
             'name'              => 'required',
-            'ext_part_number'   => 'required',
+            // 'ext_part_number'   => 'required',
             'part_number_key'   => 'required',
             'part_number'       => 'required',
             'currency'          => 'required',
@@ -103,7 +103,7 @@ class ProductController extends Controller
 
         $product->update([
             'name'              => $request->name,
-            'ext_part_number'   => $request->ext_part_number,
+            // 'ext_part_number'   => $request->ext_part_number,
             'part_number_key'   => $request->part_number_key,
             'part_number'       => $request->part_number,
             'currency'          => $request->currency,

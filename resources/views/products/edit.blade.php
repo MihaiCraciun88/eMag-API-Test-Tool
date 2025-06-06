@@ -32,10 +32,10 @@
             <input type="text" name="name" class="form-control" value="{{ $product->name }}">
         </div>
 
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label class="form-label">Cod produs:</label>
             <input type="text" name="ext_part_number" class="form-control" value="{{ $product->ext_part_number }}">
-        </div>
+        </div> -->
         <div class="mb-3">
             <label class="form-label">Cod bare:</label>
             <input type="text" name="part_number_key" class="form-control" value="{{ $product->part_number_key }}">

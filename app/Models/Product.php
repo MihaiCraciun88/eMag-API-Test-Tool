@@ -12,6 +12,18 @@ class Product extends Model
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
 
+    protected $fillable = [
+        'name',
+        'part_number_key',
+        'part_number',
+        'currency',
+        'sale_price',
+        'original_price',
+        'vat',
+        'status',
+        'stock',
+    ];
+
     public function getProductIdAttribute()
     {
         return $this->id;  
